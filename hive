@@ -1,0 +1,71 @@
+-  create a database
+create database temp1;
+
+-  create a table using database 
+create table student.temp1;
+
+-  change database
+use temp1;
+
+-  create a table
+create table student;
+
+-  viewing a database
+Show databases;
+
+-  dropping a database
+for empty database:
+drop database if exist temp1;
+for nonempty database
+drop database temp1 cascade;
+
+-  altering a database
+alter database temp1 set properties ('owner' = 'john');
+
+-  creating table 
+create table  if not exist table_1 (ename string , salary float ) row format delimited fields terminated by '\t';
+
+-  external table
+create external table  if not exist table_1 (ename string , salary float ) row format delimited fields terminated by '\t';
+
+-  creating table using existing schema
+create table emp like student;
+
+-  descibe table
+describe student;
+
+-  dropping table 
+drop table if not exist student;
+
+-  create partitions
+create table student (ename string ,salary float) partitioned by (designation string);
+
+-  rename table 
+alter table emp rename to student;
+
+-   modify columns
+alter table emp change column ename fullname string;
+
+-  add column
+alter table employee_new add columns (sales)
+
+-  replace column
+alter table emp replace (ename string , projectname string);
+
+-  show all tables
+show tables
+
+-  loading files into table
+load data local inpath "path" into student;
+
+properties:
+set hive.exce.dynamic.partition = true;
+set hive.exce.dynamic.partition.mode = nonstrict;
+
+-  select statement
+select * from emp;
+
+-  where statement 
+select * from emp where amount=1500;
+
+-
