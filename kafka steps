@@ -1,0 +1,44 @@
+--alter : Alter the number of partitions, replica assignment, and/or configuration for the topic. 
+--create : Create a new topic
+--delete : Delete a topic
+--describe : List details for the given topics
+--force : Suppress console prompts
+--help : Print usage information
+--if-exists :  if set when altering or deleting or describing topics, the action will only execute if the topic exists. Not supported with the --bootstrap-server option. 
+--list List all availabble topics
+--partitions <Integer : #of partitions> : The number of partitions for the topic being created or altered
+--replication factor: The repication factor for each partion in the topic being created.
+
+
+-  create a topic
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create 
+
+-  create a topic with partitions
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3
+
+-  create a topic with paritition and replication factor
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1
+
+-  list all topic
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic --list
+
+-  list a particular topic
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --list
+
+-  Describe a particular topic
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --describe
+
+- start a producer
+kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first_topic
+
+-  start a consumer
+kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic
+
+-  from beginning
+kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning
+
+-  delete topic
+kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --delete
+
+
+
