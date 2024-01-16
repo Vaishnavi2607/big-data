@@ -1,0 +1,83 @@
+It is an open source , nonrelational , distributed column oriented database developed as a part of Apache Software Foundation's Hadoop project.
+
+helps to store large quantities of data in such a way that can be accessed easily and quickly 
+Hbase provides a java API
+All HBase shell operations have a corresponding java object/ method
+Start h-base:
+
+./run-hdfs.sh -s start
+./run-yarn.sh -s start
+./run-hivemetastore.sh -s start
+./run-hbase.sh -s start
+hbase shell
+
+to create a table you need to 
+1.  Specify the table name and column families (HTableDescriptor)
+2.  Connect to HBase (Connection)
+3.  Create the table (HBaseAdmin)
+
+HTableDescriptor : hbase provides a htabledescriptor class to specify table properties
+                   used to specify : 1. table name , 2. coloumn families , 3. other properties
+
+Connection  :  the connection is created using the default setting in the hbase configuration
+               the connection object can provide an instance of hbaseadmin
+
+HBaseAdmin  :  we use it to 1. create tables 2. delete tables 3. check if a table exists etc
+  
+  -  Create a table :
+create 'webpage','stats'
+  here 'webpage' is table name
+  'stats' is column families
+
+Column Families :- They are the groups of columns which are usually semantically related.
+                 - When we create table in hbase we don't have to specify the columns in table
+                 - Every column has to belong to some coloumn family
+                 - Every table must have at least 1 column family
+                 - Column families are created at the time of table creation
+
+addFamly:
+  -  it will add the column family to the table properties
+  -  List all tables: 
+list
+  - Inserting data in the table 
+put 'webpage' , 'row1' , 'stats:daily' , 'test-daily-value'
+  where 
+  'webpage' is tablename
+  'row1' is row id
+  'stats:daily' is column
+  'test-daily-value' is value
+  ('row1' , 'stats:daily') is key
+  'test-daily-value' is value
+
+Put:  -  Data is inserted into hbase tables using the put operation. 
+      -  with put , we insert data 1 cell at a time.
+      -  we can also update the value for existing keys
+
+  -  Display the content of table
+scan 'webpage'
+Scan :  -  we can retrive rows ids within a specified range
+        -  Returns all values from the notification table
+        -  we can pass dictionary with some specification to scan 
+        -  Dictionary contains: 
+                                -  columns : A list of columns names
+                                -  limits : the number of values to be returned
+                                -  startrow: values starting from this row  .it is passed as string
+                                -  stoprow: end of row . it is also passed as string
+
+  -  Retriving the data
+get 'webpage' , 'row1'
+
+Get:  -  Data is retrieved from hbase tables using the get operation
+      -  we can retrive data for 1 row id at a time
+      -  the default behaviour is return all the columns for the specified row id
+      -  get has two mandatory argumments : The Table name , The row id
+
+  -  Disable the table 
+disable 'webpage'
+
+  - drop the table and delete all the data
+drop 'webpage'
+delete  :  -  Data is deleted from table using the delete operation 
+           -  delete data 1 cell at a time
+  
+  
