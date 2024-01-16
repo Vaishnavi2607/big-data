@@ -11,22 +11,19 @@
 
 
 -  create a topic
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create 
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create 
 
 -  create a topic with partitions
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3
 
 -  create a topic with paritition and replication factor
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1
 
 -  list all topic
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic --list
-
--  list a particular topic
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --list
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --list
 
 -  Describe a particular topic
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --describe
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --describe
 
 - start a producer
 kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic first_topic
@@ -38,7 +35,7 @@ kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic
 kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning
 
 -  delete topic
-kafka-topic.sh --zookeeper 127.0.0.1:2181 --topic first_topic --delete
+kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic first_topic --delete
 
 
 
