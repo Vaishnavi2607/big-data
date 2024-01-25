@@ -1,0 +1,11 @@
+  -  Hive is schema on read refers to the stored data and the data not validated against schema whan inserted or loaded.
+  -  Only one pair of data types is allowed in the key-value pair of MAP while mixed types are allowed in STRUCT.
+  -  Advantage of creating table partitions is faster query performance
+  -  While querying a hive table for a Array type column, if the array index is nonexistent then null is returned
+  -  The DISTRIBUTED BY clause in hive comes before the sort clause
+  -  The LIMIT clause applied to a select query Executes the entire query before the LIMIT clause
+  -  Setting the local mode execuion to ture causes setting local mode execution to true causess all task areexecuted only on a single maxhine.
+  -  A table seecting function ia a function that takes zero or more inputs and produce multiple columns or rows of output
+  -  Hive supports row-level Inser/update and Delete using the ACID features only on Orc file format.
+  -  
+    
